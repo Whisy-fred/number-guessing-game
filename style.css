@@ -61,6 +61,7 @@ input {
   border: 2px solid black;
   margin: 16px 0;
   font-size: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
 input:focus {
@@ -93,7 +94,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-#error-message {
+#error-msg {
   padding: 10px;
   margin: 10px;
   font-weight: 600;
@@ -103,6 +104,26 @@ button:hover {
 #game-main-header {
   font-size: 1.1rem;
   line-height: 1.5;
+}
+
+#btn-guess {
+  margin-top: -24px;
+}
+
+#note-msg-red {
+  color: #00ff40;
+  font-weight: bolder;
+}
+
+#input-guess:disabled {
+  cursor: not-allowed;
+}
+
+.btn-disabled {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+  transition: none !important;
 }
 
 @media (min-width: 1025px) {
@@ -266,7 +287,7 @@ button:hover {
     padding: 6px;
   }
 
-  #error-message {
+  #error-msg {
     font-size: 0.75rem;
     margin: 5px 0;
   }
