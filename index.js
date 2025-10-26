@@ -21,7 +21,6 @@ const guesses = [];
 btnGuess.onclick = function () {
   let guess = Number(inputGuess.value);
   guesses.push(guess);
-  console.log(guesses);
 
   let maxattempts = 10;
   if (attempts === maxattempts) {
@@ -32,7 +31,7 @@ btnGuess.onclick = function () {
         <h2>You Lost</h2>
         <p>Answer: ${answer}</p>
         <div>Your guesses so far: 
-          <p>${guesses.join(', ')}</p>
+          <p class="guesses">${guesses.join(', ')}</p>
         </div>
         <p id="error-msg">Refresh to try again</p>
     `;
