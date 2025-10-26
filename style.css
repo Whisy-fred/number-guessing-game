@@ -168,6 +168,10 @@ button:hover {
     padding: 50px 40px;
   }
 
+  .game-result {
+    height: 610px;
+  }
+
   h1 {
     font-size: 2.2rem;
   }
