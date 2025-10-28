@@ -126,10 +126,50 @@ button:hover {
   transition: none !important;
 }
 
+.game-result {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  width: 450px;
+  height: 682px;
+  border-radius: 2.25rem;
+  z-index: 100;
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 4px 4px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transition: 300ms all ease-in-out;
+}
+
+.game-result h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.game-result p,
+.game-result div {
+  font-size: 20px;
+  margin: 0;
+}
+
 @media (min-width: 1025px) {
+  body {
+    overflow-y: hidden;
+  }
+
   main {
     max-width: 450px;
     padding: 50px 40px;
+  }
+
+  .game-result {
+    height: 610px;
   }
 
   h1 {
@@ -151,6 +191,10 @@ button:hover {
     max-width: 500px;
     padding: 50px 40px;
     border-radius: 36px;
+  }
+
+  .game-result {
+    width: 500px;
   }
 
   img {
@@ -209,9 +253,18 @@ button:hover {
 
 /* ---------- PHONES ---------- */
 @media (max-width: 599px) {
+  body {
+    padding: 20px 10px;
+  }
+
   main {
     padding: 30px 20px;
     border-radius: 24px;
+  }
+
+  .game-result {
+    width: 420px;
+    height: 540px;
   }
 
   img {
@@ -239,60 +292,40 @@ button:hover {
   }
 }
 
-@media (max-width: 260px), (max-height: 340px) {
+@media (max-width: 470px) {
+  main,
+  .game-result {
+    width: 400px;
+    height: 520px;
+  }
+}
+
+@media (max-width: 388px) {
   body {
-    padding: 10px;
-    overflow-y: auto;
+    padding: 10px 10px;
   }
 
   main {
-    width: 100%;
-    padding: 15px 10px;
-    border-radius: 18px;
-    box-shadow: none;
-    max-width: none;
+    width: 380px;
+    height: 500px;
   }
 
-  img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+  .game-result {
+    width: 340px;
   }
+}
 
-  h1 {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-
-  #label-game-username,
-  #game-main-header {
-    font-size: 0.8rem;
-    line-height: 1.2;
-  }
-
-  input {
-    width: 100%;
-    height: 28px;
-    font-size: 0.8rem;
-    padding: 6px 8px;
-    margin: 8px 0;
-    border-radius: 10px;
-  }
-
-  button {
-    width: 80%;
-    height: 32px;
-    font-size: 0.8rem;
-    border-radius: 10px;
-    padding: 6px;
-  }
-
-  #error-msg {
-    font-size: 0.75rem;
-    margin: 5px 0;
-  }
-
+@media (max-width: 314px) {
   body {
-    background: #1e2b33;
+    padding: 20px 10px;
+  }
+
+  main {
+    width: 400px;
+    height: 520px;
+  }
+
+  .game-result {
+    width: 340px;
   }
 }

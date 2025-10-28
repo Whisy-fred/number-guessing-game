@@ -8,37 +8,53 @@ function refreshPage() {
 }
 
 let errorMsg = document.getElementById('error-msg');
+let noteMsg = document.getElementById('note-msg');
 let inputGuess = document.getElementById('input-guess');
 let btnGuess = document.getElementById('btn-guess');
+const gameReuslt = document.querySelector('.game-result');
 let minNum = 1;
 let maxNum = 100;
 let attempts = 0;
 let answer = Math.floor(Math.random() * 100 + 1);
+const guesses = [];
 
 btnGuess.onclick = function () {
   let guess = Number(inputGuess.value);
+  guesses.push(guess);
 
   let maxattempts = 10;
   if (attempts === maxattempts) {
-    errorMsg.innerText = 'Oops out of guess, Refresh the game to try again';
-    btnGuess.innerText = 'Refresh';
-    btnGuess.onclick = refreshPage;
     inputGuess.disabled = true;
+    document.querySelector('main').style.pointerEvents = 'none';
+    gameReuslt.style.opacity = '1';
+    gameReuslt.innerHTML = `
+        <h2>You Lost</h2>
+        <p>Answer: ${answer}</p>
+        <div>Your guesses so far: 
+          <p class="guesses">${guesses.join(', ')}</p>
+        </div>
+        <p id="error-msg">Refresh to try again</p>
+    `;
   } else {
     attempts++;
     if (guess < answer) {
-      errorMsg.innerText = 'Too low! Try again';
+      noteMsg.innerText = 'Too low! Try again';
     } else if (guess > answer) {
-      errorMsg.innerText = 'Too high! Try again';
+      noteMsg.innerText = 'Too high! Try again';
     }
   }
   if (guess === answer) {
     winningSound();
     inputGuess.disabled = true;
-    btnGuess.innerText = 'Refresh';
-    btnGuess.onclick = refreshPage;
-    document.getElementById('note-msg').innerHTML =
-      '<span id="note-msg-red">NOTE</span> : Refresh to play the game again.';
+    gameReuslt.style.opacity = '1';
+    gameReuslt.innerHTML = `
+        <h2>You Won</h2>
+        <p>Answer: ${answer}</p>
+        <div>Your guesses so far: 
+          <p>${guesses.join(', ')}</p>
+        </div>
+        <p id="error-msg">Refresh to play again</p>
+    `;
 
     if (attempts >= 1 && attempts < 3) {
       document.getElementById(
@@ -60,15 +76,15 @@ inputGuess.addEventListener('input', function () {
   const userGuess = Number(inputGuess.value);
 
   if (isNaN(userGuess)) {
-    errorMsg.innerText = 'Please enter a valid number';
+    noteMsg.innerText = 'Please enter a valid number';
     btnGuess.disabled = true;
     btnGuess.classList.add('btn-disabled');
   } else if (userGuess < minNum || userGuess > maxNum) {
-    errorMsg.innerText = 'Please enter a number between 1 and 100';
+    noteMsg.innerText = 'Please enter a number between 1 and 100';
     btnGuess.disabled = true;
     btnGuess.classList.add('btn-disabled');
   } else {
-    errorMsg.innerText = '';
+    noteMsg.innerText = '';
     btnGuess.disabled = false;
     btnGuess.classList.remove('btn-disabled');
   }
