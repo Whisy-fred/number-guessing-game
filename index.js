@@ -35,6 +35,7 @@ btnGuess.onclick = function () {
           <p class="guesses">${guesses.join(', ')}</p>
         </div>
         <p id="error-msg">Refresh to try again</p>
+restartButton();
     `;
   } else {
     attempts++;
@@ -94,7 +95,8 @@ inputGuess.addEventListener('input', function () {
 });
 
 function restartButton(){
-  const restartButton = document.getElementById('restartbtn').innerHTML = Restart to play again
+  const restartButton = document.getElementById('restartbtn').innerHTML = restart to play again:
+restartButton.onclick = refreshPage();
 
   
 }
