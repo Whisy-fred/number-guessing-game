@@ -54,7 +54,9 @@ btnGuess.onclick = function () {
         <div>Your guesses so far: 
           <p>${guesses.join(', ')}</p>
         </div>
+
         <p id="error-msg">Refresh to play again</p>
+restartButton();
     `;
 
     if (attempts >= 1 && attempts < 3) {
@@ -90,6 +92,13 @@ inputGuess.addEventListener('input', function () {
     btnGuess.classList.remove('btn-disabled');
   }
 });
+
+function restartButton(){
+  const restartButton = document.getElementById('restartbtn').innerHTML = Restart to play again
+
+  
+}
+
 
 function winningSound() {
   const winningSound = document.getElementById('winning-sound');
