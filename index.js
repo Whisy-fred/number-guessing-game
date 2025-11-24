@@ -7,7 +7,7 @@ function refreshPage() {
   location.reload();
 }
 
-let restartbtn = document.getElementById('restartbtn');
+
 let errorMsg = document.getElementById('error-msg');
 let noteMsg = document.getElementById('note-msg');
 let inputGuess = document.getElementById('input-guess');
@@ -35,7 +35,7 @@ btnGuess.onclick = function () {
           <p class="guesses">${guesses.join(', ')}</p>
         </div>
         <p id="error-msg">Refresh to try again</p>
-restartButton();
+
     `;
   } else {
     attempts++;
@@ -57,7 +57,7 @@ restartButton();
         </div>
 
         <p id="error-msg">Refresh to play again</p>
-restartButton();
+
     `;
 
     if (attempts >= 1 && attempts < 3) {
@@ -94,12 +94,7 @@ inputGuess.addEventListener('input', function () {
   }
 });
 
-function restartButton(){
-  const restartButton = document.getElementById('restartbtn').innerHTML = restart to play again:
-restartButton.onclick = refreshPage();
 
-  
-}
 
 
 function winningSound() {
