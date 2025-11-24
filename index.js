@@ -7,6 +7,7 @@ function refreshPage() {
   location.reload();
 }
 
+let restartbtn = document.getElementById('restartbtn');
 let errorMsg = document.getElementById('error-msg');
 let noteMsg = document.getElementById('note-msg');
 let inputGuess = document.getElementById('input-guess');
